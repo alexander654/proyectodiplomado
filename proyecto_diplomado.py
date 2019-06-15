@@ -38,13 +38,14 @@ def mosquitoes_type():
 def best_trap():
     dic=dict()
     for index, row in datos_mosquitos.iterrows():
-        key=row[2]
+        key=row[13]
         if key in dic:
-            dic[key]+=row[6]
+            dic[key]+=row[17]
         else:
-            dic[key]=row[6]
+            dic[key]=row[17]
     value=max(dic.items(), key=operator.itemgetter(1))[0]
-    return str(value, ' ' ,dic[value])
+    result=dict(trap=value,mosquitoes=dic[value])
+    return str(result)
 #print('4. ¿Cual es la especie mas grande de mosquitos?')
 #dic=dict()
 #for index, row in datos_mosquitos.iterrows():
@@ -58,13 +59,14 @@ def best_trap():
 def great_mosquito_type():
     dic=dict()
     for index, row in datos_mosquitos.iterrows():
-        key=row[1]
+        key=row[7]
         if key in dic:
-            dic[key]+=row[6]
+            dic[key]+=row[17]
         else:
-            dic[key]=row[6]
+            dic[key]=row[17]
     value=max(dic.items(), key=operator.itemgetter(1))[0]
-    return str(value,' ', dic[value])
+    result=dict(specie=value,mosquitoes=dic[value])
+    return str(result)
 # print('5. ¿Cual es la especie mas pequeña de mosquitos?')
 # dic=dict()
 # for index, row in datos_mosquitos.iterrows():
@@ -78,13 +80,14 @@ def great_mosquito_type():
 def less_mosquito_type():
     dic=dict()
     for index, row in datos_mosquitos.iterrows():
-        key=row[1]
+        key=row[7]
         if key in dic:
-            dic[key]+=row[6]
+            dic[key]+=row[17]
         else:
-            dic[key]=row[6]
+            dic[key]=row[17]
     value=min(dic.items(), key=operator.itemgetter(1))[0]
-    return str(value,' ',dic[value])
+    result=dict(specie=value,mosquitoes=dic[value])
+    return str(result)
 # print('6. ¿Año y semana con mas mosquitos?')
 # dic=dict()
 # for index, row in datos_mosquitos.iterrows():
@@ -98,13 +101,14 @@ def less_mosquito_type():
 def best_season_trap():
     dic=dict()
     for index, row in datos_mosquitos.iterrows():
-        key=(index,row[18])
+        key=(index,row[3])
         if key in dic:
-            dic[key]+=row[6]
+            dic[key]+=row[17]
         else:
-            dic[key]=row[6]
+            dic[key]=row[17]
     value=max(dic.items(), key=operator.itemgetter(1))[0]
-    return str(value,'',dic[value])
+    result=dict(date=value,mosquitoes=dic[value])
+    return str(result)
 # print('7. ¿Cual es el zip code donde aparecen mas mosquitos?')
 # dic=dict()
 # for index, row in datos_mosquitos.iterrows():
@@ -118,13 +122,14 @@ def best_season_trap():
 def zip_code_more_mosquitoes():
     dic=dict()
     for index, row in datos_mosquitos.iterrows():
-        key=row[5]
+        key=row[9]
         if key in dic:
-            dic[key]+=row[6]
+            dic[key]+=row[17]
         else:
-            dic[key]=row[6]
+            dic[key]=row[17]
     value=max(dic.items(), key=operator.itemgetter(1))[0]
-    return str(value,'',dic[value])
+    result=dict(zip=value,mosquitoes=dic[value])
+    return str(result)
 # print('8. ¿Zip codes mas evaluados?')
 # dic=dict()
 # for index, row in datos_mosquitos.iterrows():
@@ -138,13 +143,14 @@ def zip_code_more_mosquitoes():
 def most_evaluated_zip():
     dic=dict()
     for index, row in datos_mosquitos.iterrows():
-        key=row[5]
+        key=row[9]
         if key in dic:
             dic[key]+=1
         else:
             dic[key]=1
     value=max(dic.items(), key=operator.itemgetter(1))[0]
-    return str(value,'',dic[value])
+    result=dict(zip=value,shows=dic[value])
+    return str(result)
 # print('9. ¿Zip codes menos evaluados?')
 # dic=dict()
 # for index, row in datos_mosquitos.iterrows():
@@ -158,13 +164,14 @@ def most_evaluated_zip():
 def less_evaluated_zip():
     dic=dict()
     for index, row in datos_mosquitos.iterrows():
-        key=row[5]
+        key=row[9]
         if key in dic:
             dic[key]+=1
         else:
             dic[key]=1
     value=min(dic.items(), key=operator.itemgetter(1))[0]
-    return str(value,'',dic[value])
+    result=dict(zip=value,shows=dic[value])
+    return str(result)
 # print('10. ¿Cual es el tipo de trampa que captura menos mosquitos?')
 # dic=dict()
 # for index, row in datos_mosquitos.iterrows():
@@ -180,11 +187,12 @@ def worst_mosquito_trap():
     for index, row in datos_mosquitos.iterrows():
         key=row[2]
         if key in dic:
-            dic[key]+=row[6]
+            dic[key]+=row[17]
         else:
-            dic[key]=row[6]
+            dic[key]=row[17]
     value=min(dic.items(), key=operator.itemgetter(1))[0]
-    return str(value,'',dic[value])   
+    result=dict(trap=value,mosquitoes=dic[value])
+    return str(result)   
 # print('11. ¿En que fecha aparecio la mayor cantidad de mosquitos?')
 # dic=dict()
 # for index, row in datos_mosquitos.iterrows():
@@ -198,13 +206,14 @@ def worst_mosquito_trap():
 def best_trap_date():
     dic=dict()
     for index, row in datos_mosquitos.iterrows():
-        key=row[6]
+        key=row[3]
         if key in dic:
-            dic[key]+=row[6]
+            dic[key]+=row[17]
         else:
-            dic[key]=row[6]
+            dic[key]=row[17]
     value=max(dic.items(), key=operator.itemgetter(1))[0]
-    return str(value,'',dic[value])
+    result=dict(date=value,mosquitoes=dic[value])
+    return str(result)
 # print('12. ¿En que fecha aparecio la menor cantidad de mosquitos?')
 # dic=dict()
 # for index, row in datos_mosquitos.iterrows():
@@ -218,13 +227,14 @@ def best_trap_date():
 def worst_trap_date():
     dic=dict()
     for index, row in datos_mosquitos.iterrows():
-        key=row[6]
+        key=row[3]
         if key in dic:
-            dic[key]+=row[6]
+            dic[key]+=row[17]
         else:
-            dic[key]=row[6]
+            dic[key]=row[17]
     value=min(dic.items(), key=operator.itemgetter(1))[0]
-    return str(value,'',dic[value])
+    result=dict(date=value,mosquitoes=dic[value])
+    return str(result)
 # print('13. ¿Año y semana con menos mosquitos?')
 # dic=dict()
 # for index, row in datos_mosquitos.iterrows():
@@ -238,13 +248,14 @@ def worst_trap_date():
 def date_less_mosquito():
     dic=dict()
     for index, row in datos_mosquitos.iterrows():
-        key=(index,row[0])
+        key=(index,row[3])
         if key in dic:
-            dic[key]+=row[6]
+            dic[key]+=row[17]
         else:
-            dic[key]=row[6]
+            dic[key]=row[17]
     value=min(dic.items(), key=operator.itemgetter(1))[0]
-    return str(value,'',dic[value])
+    result=dict(date=value,mosquitoes=dic[value])
+    return str(result)
 
 def toJson(value):
     return dumps(value)
